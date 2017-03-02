@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!--scrollbars  设置滚动条显示。none（隐藏），horizontal（水平），vertical（垂直）。
+
+    以往的android view里，只有X和Y两个值，而在5.x之后，Google为其增加了一个新的属性——Z值。
+
+    Z值使得UI界面更有立体感，view与view直接有了明显的层次感。Z值由两部分组成，elevation和translationZ组成，elevation是静态成员，translationZ可以在代码中设置实现动画效果。
+
+    因此Z=elevation+translationZ。
+    -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_zhihu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        android:clipToPadding="false"
+        android:elevation="1dp" />
+
+    <!--  android:indeterminate="true"   设置ProgressDialog 的进度条是否不明确  在不确定模式下，进度条动画无限循环-->
+    <!-- android:indeterminateTint="?android:colorAccent"
+        android:indeterminateTintMode="src_in"  设置progressDialog的自定义颜色 这两个是supportV7 ，需要共同作用的结果-->
+    <ProgressBar
+        android:id="@+id/prograss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="?android:colorAccent"
+        android:indeterminateTintMode="src_in" />
+
+
+
+    <ViewStub
+        android:id="@+id/stub_no_connection_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout="@layout/no_connection_text" />
+
+
+
+    <ViewStub
+        android:id="@+id/stub_posting_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/padding_normal"
+        android:layout_marginEnd="@dimen/padding_normal"
+        android:layout="@layout/posting_progress" />
+
+</FrameLayout>
